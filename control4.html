@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+</head>
+<body onload="RunTest.delayedShow()">
+
+<h1>Loops</h1>
+there are a lot more loops like
+<pre>
+<code class="language-javascript">
+for (;;) {
+    console.log("i would loop endlessly");
+}
+</code>
+</pre>
+that's the for loop from before but without the initialization, condtion and final-expression. these are all optional actually.
+<p>
+    then there are loops specifically for objects (for-in) and arrays (for-of), so let's talk about arrays and objects soon.
+</p>
+<pre>
+<code class="language-javascript">
+const array = ['a', 1, true];
+for (const element of array) {
+  console.log(element);
+}
+// -> 'a'
+// -> 1
+// -> true
+</code>
+also this array function acts as loop
+<code class="language-javascript">
+const array = ['a', 1, true];
+array.forEach(element => console.log(element))
+// -> 'a'
+// -> 1
+// -> true
+</code>
+<code class="language-javascript">
+const object = { a: 1, b: 2, c: 3 };
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+// "a: 1"
+// "b: 2"
+// "c: 3"
+</code>
+</pre>
+<script src="test.js"></script>
+
+<div id="displayOnSuccess" hidden="hidden">
+    <a href="./control5.html">next exercise</a>
+</div>
+
+<!-- fancy code highlighting -->
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Structures</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+</head>
+<body onload="runScript(); RunTest.test1()">
+<h1>Arrays</h1>
+Arrays can act as list, stack or queue. Set and get values with the brackets notation
+<pre>
+<code class="language-javascript">
+const someList = ["a", "b", "c"]
+console.log(someList[0]) // -> "a"
+console.log(someList[2]) // -> "c"
+console.log(someList[2 - 1]) // -> "b"
+</code>
+</pre>
+
+Arrays are special kinds of objects
+<pre>
+<code class="language-javascript">
+console.log(typeOf []) // -> "object"
+</code>
+</pre>
+
+
+
+
+All these have shorthands for calculation and assignment
+<pre>
+<code class="language-javascript">
+const kickDamage = 10
+let health = 100
+health -= kickdamage // same as health = health - kickdamage
+console.log(health) // -> 90
+</code>
+</pre>
+
+<h3>Your Task:</h3>
+<span>edit the script block of this file, add or remove things so max 99 willpower are needed</span><br>
+<h3>Willpower needed today: <span id="willpower"></span></h3>
+<pre class="error"></pre>
+
+<script type="application/javascript">
+    const runScript = () => {
+        let todaysWillpowerNeeded = 0
+        // some things need willpower
+        const cleaning = 70;
+        const work = 30;
+        const exercising = 40;
+        // some things reduce willpower needed
+        const tee = -10;
+        const sweets = -5
+
+
+        todaysWillpowerNeeded += cleaning
+        todaysWillpowerNeeded += work
+        todaysWillpowerNeeded += exercising
+        todaysWillpowerNeeded += tee * 2
+        todaysWillpowerNeeded += sweets * 2
+
+        document.getElementById("willpower").textContent = todaysWillpowerNeeded + ""
+    };
+
+</script>
+<script src="test.js"></script>
+
+<div id="displayOnSuccess" hidden="hidden">
+    <a href="./operators2.html">next exercise</a>
+</div>
+
+<!-- fancy code highlighting -->
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+</head>
+<body onload="runScript(); RunTest.test1()">
+<h1>Loops</h1>
+do-while loops are similar, but they will execute the do block at least once
+<pre>
+<code class="language-javascript">
+do {
+    console.log("i'll log once")
+} while (false)
+</code>
+</pre>
+
+<h3>Your Task:</h3>
+<span>edit the script block of this file so all pineapples 🍍 are removed </span><br>
+<h3>
+    <span class="pineapple">🍍</span>
+    <span class="pineapple">🍍</span>
+    <span class="pineapple">🍍</span>
+    <span class="pineapple">🍍</span>
+</h3>
+<pre class="error"></pre>
+
+<script type="application/javascript">
+    const runScript = () => {
+        let pineapples = document.getElementsByClassName("pineapple").length
+
+        do {
+            document.getElementsByClassName("pineapple").item(0).remove()
+            pineapples--
+        } while (pineapples > 3)
+
+    };
+
+</script>
+<script src="test.js"></script>
+
+<div id="displayOnSuccess" hidden="hidden">
+    <a href="./control3.html">next exercise</a>
+</div>
+
+<!-- fancy code highlighting -->
+<script>hljs.highlightAll();</script>
+</body>
+</html>

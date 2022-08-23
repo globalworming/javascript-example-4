@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+</head>
+<body onload="runScript(); RunTest.test1()">
+<h1>Conditional</h1>
+for when you sometimes want to do different things. the "if" statement with a condition is used to create execution branches
+<pre>
+<code class="language-javascript">
+if (7 < 13) console.log("7 is less than 13")
+</code>
+</pre>
+often we need to distinguish between an expression being true or false, the "else" statement is used here
+<pre>
+<code class="language-javascript">
+if (Math.random() < 0.5) console.log("random number less 0.5")
+else console.log("greater or equal 0.5")
+</code>
+</pre>
+
+multiple statements need to go in a block
+<pre>
+<code class="language-javascript">
+if (Math.random() < 0.5) {
+    console.log("true")
+    console.log("random number less than 0.5")
+} else {
+    console.log("false")
+    console.log("greater or equal 0.5")
+}
+</code>
+</pre>
+
+multiple conditions can be chained need to go in a block
+<pre>
+<code class="language-javascript">
+const randomNumber = Math.random()
+
+if (randomNumber < 0.5) {
+    console.log("random number less than 0.5")
+} else if (randomNumber < 0.9) {
+    console.log("less than 0.9")
+} else {
+    console.log("greater or equal 0.9")
+}
+</code>
+</pre>
+
+basic if-else condition can be replaced with the ternary operator "?:"
+<pre>
+<code class="language-javascript">
+if (Math.random() < 0.5) console.log("random number less 0.5")
+else console.log("greater or equal 0.5")
+
+// same as
+Math.random() < 0.5 ? console.log("random number less 0.5") : console.log("greater or equal 0.5")
+
+// and might be used as conditional assignment
+const message = Math.random() < 0.5 ? "smaller" : "bigger"
+</code>
+</pre>
+
+checking for undefined, null or other "falsy" things can be replaced with the "optional chaining" operator "?."
+<pre>
+<code class="language-javascript">
+const array = ["text"]
+let result;
+if (array[0]) result = array[0].toUpperCase()
+// same as
+const array = ["text"]
+let result = array[0]?.toUpperCase()
+</code>
+</pre>
+
+<h3>Your Task:</h3>
+<span>edit the script block of this file so all pineapples 🍍 are removed </span><br>
+<h3>
+    <span class="pineapple">🍍</span>
+    <span class="pineapple">🍍</span>
+    <span class="pineapple">🍍</span>
+</h3>
+<pre class="error"></pre>
+
+<script type="application/javascript">
+    const runScript = () => {
+
+        let element = document.getElementsByClassName("pineapple").item(-1);
+        element?.remove()
+
+        if (document.getElementsByClassName("pineapple").length <= 0) {
+            document.getElementsByClassName("pineapple").item(0)?.remove()
+        } else {
+            let banana = document.createElement('span');
+            banana.textContent = "🍌"
+            document.getElementsByClassName("pineapple").item(0).parentElement.appendChild(banana)
+        }
+
+        element = document.getElementsByClassName("pineapple").item(0);
+        if (element?.textContent === "🍅") element.remove()
+
+
+
+    };
+
+</script>
+<script src="test.js"></script>
+
+<div id="displayOnSuccess" hidden="hidden">
+    <a href="./control6.html">fixme link to next classroom</a>
+</div>
+
+<!-- fancy code highlighting -->
+<script>hljs.highlightAll();</script>
+</body>
+</html>
