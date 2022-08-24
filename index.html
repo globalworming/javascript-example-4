@@ -2,61 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Control Flow</title>
+    <title>Arrays</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
 </head>
 <body onload="runScript(); RunTest.test1()">
-<h1>Loops</h1>
-Repeat things a lot, with variants how. While loops are the simplest, just repeat something as long as a provided condition is true
+<h1>Arrays</h1>
+Javascript has a lot of built-in objects. Well start with three
 <pre>
 <code class="language-javascript">
-while (true) { // endless loop, don't execute :)
-    console.log("say hi")
-}
+const object = Object(); // or const object = {}
+const array = Array(); // or const array = []
+const map = new Map()
 </code>
 </pre>
-the condition is checked first, if true, the block is executed
+which can look pretty similar because you can think of them as containers for key-value pairs
 <pre>
 <code class="language-javascript">
-let courses = 0
-while (courses < 10) {
-    console.log("subscribe")
-    courses++
-}
+const object = { 0: "first value" }
+const array = [ "first value" ]
+const map = new Map([[0, "first value"]]);
+
+object[0] // -> 'first value'
+array[0] // -> 'first value'
+map.get(0) // -> 'first value'
 </code>
 </pre>
-you can break out of loops early
+Let's start with arrays because they are arguably the simplest<br>
+you can construct arrays in multiple ways
 <pre>
 <code class="language-javascript">
-let courses = 0
-while (true) {
-    courses++
-    break
-}
-console.log(courses) // -> 1
+// initializer notation
+const array1 = ["a", "b"]
+// Array with or without new
+const array2 = new Array("a", "b")
+const array3 = Array("a", "b")
+// Array but length
+const array4 = Array(4)
+console.log(array4)
+// -> [,,,,]
 </code>
 </pre>
 
 <h3>Your Task:</h3>
-<span>edit the script block of this file so all pineapples 🍍 are removed </span><br>
-<h3>
-    <span class="pineapple">🍍</span>
-    <span class="pineapple">🍍</span>
-    <span class="pineapple">🍍</span>
-    <span class="pineapple">🍍</span>
-</h3>
+<span>edit the script block of this file so a food array is created</span><br>
+<h3>Food:</h3>
+<div class="foods"></div>
 <pre class="error"></pre>
 
 <script type="application/javascript">
     const runScript = () => {
-        let pineapples = document.getElementsByClassName("pineapple").length
-        while (pineapples) {
-            document.getElementsByClassName("pineapple").item(0).remove()
-            pineapples--
-            break
+        const foods = ["apple", "banana"]
+        let i = 0
+        for (const value of foods) {
+            const p = document.createElement("pre")
+            p.textContent = `${i++}: ${value}`
+            document.getElementsByClassName("foods")[0].append(p)
         }
     };
 
@@ -64,7 +67,7 @@ console.log(courses) // -> 1
 <script src="test.js"></script>
 
 <div id="displayOnSuccess" hidden="hidden">
-    <a href="./control2.html">next exercise</a>
+    <a href="./array1.html">next exercise</a>
 </div>
 
 <!-- fancy code highlighting -->
