@@ -23,6 +23,25 @@ const RunTest =  {
             }
         }, 1000)
     },
+    test2() {
+        setTimeout(() => {
+            try {
+                if (document.getElementsByClassName("value-size")[0].textContent !== "big") {
+                    document.getElementsByClassName("error")[0].textContent = `test failed, i'd like to have a "big" pizza`
+                    return
+                }
+                if (document.getElementsByClassName("value-slices")[0].textContent !== "8") {
+                    document.getElementsByClassName("error")[0].textContent = `test failed, i'd like to have a "8" slices`
+                    return
+                }
+
+                document.getElementById("displayOnSuccess").hidden = false
+            } catch (e) {
+                document.getElementsByClassName("error")[0].textContent = e.message + "\n\n" + e.stack
+                throw e
+            }
+        }, 1000)
+    },
 
     delayedShow() {
         setTimeout(() => {
